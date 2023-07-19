@@ -1,7 +1,8 @@
 package es.fmm.ejerc005;
 
+import java.util.List;
 
-public class Figura {
+abstract class Figura {
 	
 	protected Posicion centro;
 	protected String color;
@@ -12,5 +13,22 @@ public class Figura {
 		this.centro = centro;
 		this.color = color;
 	}
+	
+
+    public void mover(int x, int y) {
+        centro.setX(centro.getX() + x);
+        centro.setY(centro.getY() + y);
+    }
+
+    public void cambiarColor(String nuevoColor) {
+        color = nuevoColor;
+    }
+
+    public String obtenerColor() {
+        return color;
+    }
+
+    public abstract void dibujar(List<char[]> lienzo);
+    public abstract void borrar(List<char[]> lienzo);
 
 }

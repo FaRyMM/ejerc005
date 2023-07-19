@@ -1,17 +1,30 @@
 package es.fmm.ejerc005;
 
-public class Circulo {
+import java.util.List;
+
+public class Circulo extends Figura {
 	
-	private Posicion centro;
 	private double radio;
 	
-	public Circulo(Posicion centro, double radio) 
+	public Circulo(Posicion centro, double radio, String color) 
 	{
-		this.centro = centro;
+		super(color, centro);
 		this.radio = radio;
 	}
 
-	
+	@Override
+	public void dibujar(List<char[]> lienzo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void borrar(List<char[]> lienzo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//comprobar las x y las y de las posiciones y el temaño del lienzo para saber si esta dentro
 	
 
 }
