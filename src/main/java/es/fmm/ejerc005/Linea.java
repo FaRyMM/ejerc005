@@ -31,17 +31,48 @@ public class Linea extends Figura{
 	{
 		return angulo;
 	}
+	
+	public boolean verificaPosicion(Lienzo lienzo) {
+			
+			int xInicio = centro.getX() ;
+			int yInicio = centro.getY() ;
+			int xFin = fin.getX();
+			int yFin = fin.getY();
+			
+			if(xInicio < 0 || xInicio >= lienzo.getAncho() || yInicio < 0 || yInicio >= lienzo.getAlto()
+					|| xFin < 0 || xFin >= lienzo.getAlto() || yFin < 0 || yFin > lienzo.getAlto()) 
+			{
+				return true;
+			}
+			
+			return false;
+		}
 
 	@Override
-	public void dibujar(List<char[]> lienzo) {
-		// TODO Auto-generated method stub
+	public void mover(Lienzo lienzo, int x, int y) throws Exception {
+		if(verificaPosicion(lienzo))
+    		throw new Exception("No se puede mover a esa posición");
+    	
+        centro.setX(centro.getX() + x);
+        centro.setY(centro.getY() + y);
 		
 	}
 
 	@Override
-	public void borrar(List<char[]> lienzo) {
-		// TODO Auto-generated method stub
-		
+	public String getId() {
+		return id;
 	}
+
+	@Override
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	@Override
+	public String getColor() {
+		return this.color;
+	}
+
+
 
 }

@@ -1,7 +1,9 @@
 package es.fmm.ejerc005;
 
+import java.util.Objects;
+
 public class Posicion {
-	//posicion de las figuras
+//posicion de las figuras
 	
 	private int x ;
 	private int y;
@@ -31,6 +33,20 @@ public class Posicion {
 	{
 		this.y = y;
 	}
+	
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Posicion posicion = (Posicion) o;
+        return x == posicion.x && y == posicion.y;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
 	
 
 }

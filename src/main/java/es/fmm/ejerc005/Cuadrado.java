@@ -13,28 +13,51 @@ public class Cuadrado extends Figura {
 	}
 	
 
-	public void cambiaColor(String color) 
-	{
+	@Override
+	public boolean verificaPosicion(Lienzo lienzo) {
+		
+		double xInicio = centro.getX() - (lado / 2);
+		double yInicio = centro.getY() - (lado / 2);
+		
+		if(xInicio < 0 || xInicio >= lienzo.getAncho() || yInicio < 0 || yInicio >= lienzo.getAlto()) 
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+
+	@Override
+	public void mover(Lienzo lienzo, int x, int y) throws Exception {
+		if(verificaPosicion(lienzo))
+    		throw new Exception("No se puede mover a esa posición");
+    	
+        centro.setX(centro.getX() + x);
+        centro.setY(centro.getY() + y);
+		
+	}
+
+
+	@Override
+	public String getId() {
+		return id;
+	}
+
+
+	@Override
+	public void setColor(String color) {
 		this.color = color;
 	}
-	
-	public String getColor() 
-	{
+
+
+	@Override
+	public String getColor() {
 		return this.color;
 	}
 
 
-	@Override
-	public void dibujar(List<char[]> lienzo) {
-		// TODO Auto-generated method stub
-		
-	}
 
-
-	@Override
-	public void borrar(List<char[]> lienzo) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }
